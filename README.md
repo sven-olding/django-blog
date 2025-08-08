@@ -47,3 +47,10 @@ Use the following command to format
 ```shell
 uv run ruff format
 ```
+
+### pre-commit hook
+
+This project also uses [pre-commit](https://pre-commit.com/) with a ruff pre-commit hook so formatting/linting can be applied upon committing. Use the following command to install:
+```shell
+uv run pre-commit install
+```
