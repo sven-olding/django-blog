@@ -32,3 +32,18 @@ cd into blog and run as regular django app
 cd blog
 uv run manage.py runserver
 ```
+
+## Formatting/Linting
+
+This project uses [ruff](https://github.com/astral-sh/ruff) as a linter/formatter. You can run 
+```shell
+uv run ruff check
+``` 
+for checking the code or with the `--fix` option to fix all "fixable" errors
+```shell
+uv run ruff check --fix
+```
+Use the following command to format
+```shell
+uv run ruff format
+```
