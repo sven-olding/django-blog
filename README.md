@@ -15,22 +15,21 @@ to install all the necessary stuff
 If starting first time run the db migrations
 
 ```shell
-uv run manage.py migrate
+uv run mysite/manage.py migrate
 ```
 
 and create an admin user:
 
 ```shell
-uv run manage.py createsuperuser --username admin --email admin@example.com
+uv run mysite/manage.py createsuperuser --username admin --email admin@example.com
 ```
 
 ## Start dev server
 
-cd into blog and run as regular django app
+run as regular django app
 
 ```shell
-cd blog
-uv run manage.py runserver
+uv run mysite/manage.py runserver
 ```
 
 ## Formatting/Linting
