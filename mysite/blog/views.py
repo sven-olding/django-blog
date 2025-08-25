@@ -30,7 +30,14 @@ def post_detail(request, year, month, day, post):
         publish__day=day,
         slug=post,
     )
-    return render(request, "blog/post/detail.html", {"post": post})
+
+    comments = post.comments.filter(active=True)  # type: ignore
+    form = CommentForm()
+    return render(
+        request,
+        "blog/post/detail.html",
+        {"post": post, "comments": comments, "form": form},
+    )
 
 
 @require_POST
@@ -42,11 +49,11 @@ def post_comment(request, post_id):
         comment = form.save(commit=False)
         comment.post = post
         comment.save()
-        return render(
-            request,
-            "blog/post/comment.html",
-            {"post": post, "form": form, "comment": comment},
-        )
+    return render(
+        request,
+        "blog/post/comment.html",
+        {"post": post, "form": form, "comment": comment},
+    )
 
 
 def post_share(request, post_id):
