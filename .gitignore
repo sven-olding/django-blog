@@ -14,3 +14,6 @@ wheels/
 
 # env vars
 .env*
+
+# misc
+.DS_Store
