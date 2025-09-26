@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 {% block title %}Blog Posts{% endblock %}
 
 {% block content %}
@@ -16,7 +17,7 @@
             <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
         {% endfor %}
         <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-        <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+        <p>{{ post.body|markdown|truncatewords_html:30 }}</p>
     </li>
     {% empty %}
     <li>No posts available.</li>
