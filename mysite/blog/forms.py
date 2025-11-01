@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Comment
 
 
@@ -30,3 +31,7 @@ class CommentForm(forms.ModelForm):
             "email": forms.EmailInput(attrs={"placeholder": "Your email"}),
             "body": forms.Textarea(attrs={"placeholder": "Your comment"}),
         }
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
